@@ -1,6 +1,7 @@
 /**** efw4.X Copyright 2019 efwGrp ****/
 package efw.properties;
 import java.io.FileInputStream;
+import java.io.InputStreamReader
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
@@ -198,7 +199,7 @@ public final class PropertiesManager {
      */
     public static void init() throws IOException{
     	try(InputStream inptstrm=Thread.currentThread().getContextClassLoader().getResourceAsStream(PropertiesManager.EFW_PROPERTIES_FILE_NAME)){
-    		prop.load(inptstrm);
+    		prop.load(new InputStreamReader(inptstrm, "UTF-8"));
 		}
     }
     /**
